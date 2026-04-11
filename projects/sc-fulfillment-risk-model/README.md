@@ -1,5 +1,9 @@
 # Supply Chain Fulfillment Risk Prediction System
 
+## Pipeline
+
+Raw Data → Cleaning → Feature Engineering → ML Model → Risk Scores
+
 ## Overview
 This project builds a machine learning system to predict and rank e-commerce orders based on risk of late delivery.
 
@@ -12,6 +16,14 @@ Late deliveries impact customer satisfaction and operational efficiency. This sy
 - Seller-region interaction effects
 - Time-based features
 - Order complexity features
+
+## Key Features
+
+- **Distance**: Proxy for logistics complexity
+- **Expected Days**: Delivery commitment window
+- **Distance per Day**: Measures pressure on delivery network
+- **Seller Risk**: Historical seller reliability
+- **Seller Route Risk**: Seller performance in specific regions
 
 ## Model
 - Random Forest Classifier
@@ -36,19 +48,23 @@ Feature engineering (distance, seller behavior) had greater impact than model tu
 pip install -r requirements.txt
 python main.py
 
+## Sample Output
+
+### Model Performance
+
+- Recall (Late Orders): ~32%
+- Precision (Late Orders): ~42%
+
+### Interpretation
+The model captures ~1/3 of late deliveries while maintaining reasonable precision, making it suitable for prioritizing high-risk orders.
+
+### Example Use Case
+Operations team can:
+- Focus on top 20% high-risk orders
+- Allocate resources proactively
 
 
 
-🔹 Sample output
-===== MODEL PERFORMANCE =====
-              precision    recall  f1-score   support
-
-       False       0.94      0.99      0.97     17924
-        True       0.57      0.11      0.19      1276
-
-    accuracy                           0.94     19200
-   macro avg       0.75      0.55      0.58     19200
-weighted avg       0.92      0.94      0.91     19200
 
 
 ===== MODEL PERFORMANCE (Adjusted Threshold) =====
