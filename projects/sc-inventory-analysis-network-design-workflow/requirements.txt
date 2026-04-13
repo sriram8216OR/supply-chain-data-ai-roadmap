@@ -1,0 +1,10 @@
+streamlit
+pandas
+openpyxl
+plotly
+langchain
+langchain-openai
+openai
+langchain-experimental
+requests
+pydantic
