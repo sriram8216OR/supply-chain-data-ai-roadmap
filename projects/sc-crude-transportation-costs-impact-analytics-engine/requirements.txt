@@ -1,0 +1,7 @@
+# Engine layer (used by both desktop app and any other consumers)
+pandas>=2.0
+numpy>=1.24
+
+# Desktop UI (PyQt5)
+PyQt5>=5.15
+pyqtgraph>=0.13
