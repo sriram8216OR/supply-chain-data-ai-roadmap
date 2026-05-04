@@ -29,16 +29,16 @@ This is why the CEO of an HVAC manufacturer cares deeply about crude-shock expos
 
 The methodology is structured as a **four-layer transmission model**. A crude price shock propagates through:
 
-1. **Layer A** — Crude → Refined Product price shock
-2. **Layer B** — Refined Product → Lane-level fuel cost (computed bottom-up from physics × activity × price)
-3. **Layer C** — Validation bridge between Layer B's computed fuel cost and the company-given total transportation cost (via the implied fuel share, with fallback protocol for outliers)
-4. **Layer D** — Provider contract pass-through (determines what Apex absorbs vs. what the logistics provider absorbs)
+1. **Layer A** - Crude → Refined Product price shock
+2. **Layer B** - Refined Product → Lane-level fuel cost (computed bottom-up from physics × activity × price)
+3. **Layer C** - Validation bridge between Layer B's computed fuel cost and the company-given total transportation cost (via the implied fuel share, with fallback protocol for outliers)
+4. **Layer D** - Provider contract pass-through (determines what Apex absorbs vs. what the logistics provider absorbs)
 
 Each layer has its own data inputs, its own propagation lag, and its own assumptions. The transmission model is the composition of all four layers.
 
 **On what's input vs. what's computed:** total annual transportation cost per lane is **given input** in `lanes.csv` (representing what Apex would pull from its transportation management and financial systems). The lane-level fuel cost is **computed** from physics (sub-mode consumption rate × volume × distance × refined product price). Layer C reconciles the two by checking that the implied fuel share lands within the mode's expected band; lanes outside the band trigger a fallback protocol. This bottom-up approach uses company data as ground truth and uses physics to attribute the fuel portion within it.
 
-### Lane types — a manufacturer-specific concept
+### Lane types - a manufacturer-specific concept
 
 Unlike a third-party logistics provider whose "lanes" are simply origin-destination pairs, a manufacturer's freight network has structurally different categories of flow. Apex HVAC's lanes are tagged by `lane_type`:
 
@@ -51,7 +51,7 @@ Each lane_type produces different decisions and faces different vulnerabilities.
 
 ---
 
-## Layer A — Crude → Refined Product
+## Layer A - Crude → Refined Product
 
 ### What this layer represents
 
