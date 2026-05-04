@@ -1,4 +1,4 @@
-# Crude Oil Exposure Quantification — Methodology
+# Crude Oil Exposure Quantification - Methodology
 
 ## Purpose
 
